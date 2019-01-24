@@ -17,10 +17,18 @@ $('document').ready(function(){
   });
 
 
-  // $('.mobile-menu').on('click', function(){
-  //   $(this).toggleClass('open');
-  // };
   $('.mobile-menu').click(function(){
     $(this).toggleClass('open');
-  })
+  });
+
+  $('.nav-item').click(function(e){
+    e.preventDefault();
+    var pageName = $(this).attr('data-nav');
+    $('body').removeClass().addClass(pageName);
+    $('.mobile-menu').removeClass('open');
+    $('.nav-item').removeClass('active');
+    $(this).addClass('active');
+  });
+
+
 });
