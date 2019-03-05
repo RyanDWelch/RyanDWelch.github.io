@@ -9,60 +9,56 @@ $('document').ready(function(){
       switch (i) {
         case 1:
           // hideshow
-          gridItems += '<div class="grid-item grid-button hideshow" data-griditem="' + i;
-          gridItems += '"><span><i class="fa fa-toggle-on"></i><i class="fa fa-toggle-off"></i></span></div>';
+          gridItems += '<div class="grid-item grid-button hideshow"><span><i class="fa fa-toggle-on"></i><i class="fa fa-toggle-off"></i></span></div>';
           break;
         case 12:
           // dark mode
-          gridItems += '<div class="grid-item grid-button darkmode" data-griditem="' + i;
-          gridItems += '"><span id="dmode"><i class="fa fa-moon-o"></i><span>dark mode</span>';
-          gridItems += '</span><span id="lmode"><i class="fa fa-sun-o"></i><span>light mode</span></span></div>';
+          gridItems += '<div class="grid-item grid-button darkmode"><span id="dmode"><i class="fa fa-moon-o">';
+          gridItems += '</i><span>dark mode</span></span><span id="lmode"><i class="fa fa-sun-o"></i><span>light mode</span></span></div>';
           break;
         case 23:
           // shownums
-          gridItems += '<div class="grid-item grid-button shownums" data-griditem="' + i;
-          gridItems += '"><span><i class="fa fa-hashtag"></i></span></div>';
+          gridItems += '<div class="grid-item grid-button shownums"><span><i class="fa fa-hashtag"></i></span></div>';
           break;
         case 34:
           // showgrid
-          gridItems += '<div class="grid-item grid-button showgrid" data-griditem="' + i;
-          gridItems += '"><span><i class="fa fa-th"></i></span></div>';
+          gridItems += '<div class="grid-item grid-button showgrid"><span><i class="fa fa-th"></i></span></div>';
           break;
         case 45:
           // countdown
-          gridItems += '<div class="grid-item grid-button countdown" data-griditem="' + i;
-          gridItems += '"><span><i class="fa fa-clock-o"></i></span></div>';
+          gridItems += '<div class="grid-item grid-button countdown"><span><i class="fa fa-clock-o"></i></span></div>';
           break;
         case 56:
           // fadeinout
-          gridItems += '<div class="grid-item grid-button fadeinout" data-griditem="' + i;
-          gridItems += '"><span><i class="fa fa-bullseye"></i></span></div>';
+          gridItems += '<div class="grid-item grid-button fadeinout"><span><i class="fa fa-bullseye"></i></span></div>';
           break;
         case 89:
           // primary-color
-          gridItems += '<div class="grid-item grid-button primary-color" data-griditem="' + i;
-          gridItems += '"><input type="color" value="#000"></div>';
+          gridItems += '<div class="grid-item grid-button primary-color"><input type="color" value="#000"></div>';
           break;
         case 78:
           // secondary-color
-          gridItems += '<div class="grid-item grid-button secondary-color" data-griditem="' + i;
-          gridItems += '"><input type="color" value="#ff0000"></div>';
+          gridItems += '<div class="grid-item grid-button secondary-color"><input type="color" value="#ff0000"></div>';
           break;
         case 100:
           // tertiary-color
-          gridItems += '<div class="grid-item grid-button tertiary-color" data-griditem="' + i;
-          gridItems += '"><input type="color" value="#ffffff"></div>';
+          gridItems += '<div class="grid-item grid-button tertiary-color"><input type="color" value="#ffffff"></div>';
           break;
         case 67:
           // clear
-          gridItems += '<div class="grid-item grid-button clear" data-griditem="' + i;
-          gridItems += '"><span><i class="fa fa-ban"></i></span></div>';
+          gridItems += '<div class="grid-item grid-button clear"><span><i class="fa fa-ban"></i></span></div>';
           break;
         default:
-          gridItems += '<div class="grid-item" data-griditem="' + i + '"><span>' + i + '</span></div>';
+          gridItems += '<div class="grid-item"><span></span></div>';
       }
     }
     $(this).append(gridItems);
+
+    // renumber the 100
+    for (x=0;x<=$('.grid-item:not(.grid-button)').length;x++){
+      $('.grid-item:not(.grid-button)').eq(x).attr('data-griditem',x+1);
+      $('.grid-item:not(.grid-button) span').eq(x).html(x+1);
+    }
   });
 
   // mobile hamburger menu functionality
@@ -171,5 +167,6 @@ $('document').ready(function(){
   colorBttns('primary-color');
   colorBttns('secondary-color');
   colorBttns('tertiary-color');
+
 
 });
