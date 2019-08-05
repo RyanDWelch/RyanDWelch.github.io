@@ -1,0 +1,814 @@
+/*
+Ryan Welch Portfolio Stylesheet
+*/
+
+// Variables
+$master-font-size: 24px;
+$primary-font: 'Poppins',
+sans-serif;
+
+:root {
+  --primary-color: #000;
+  --secondary-color: #219752;
+  --tertiary-color: #fff;
+  --master-unit: 10px;
+
+  --default-box-shadow: inset 0px 0px 0px var(--master-unit) var(--primary-color);
+  --double-box-shadow: inset 0px 0px 0px var(--master-unit) var(--primary-color),
+    inset 0px 0px 0px calc(var(--master-unit)*2) var(--secondary-color);
+}
+
+$screen-xl-min: 1600px;
+$screen-lg-min: 1200px;
+$screen-md-min: 992px;
+$screen-sm-min: 768px;
+$screen-xs-min: 480px;
+
+//@import 'flexbox-mixins';
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
+
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: grid;
+  grid-template-columns: repeat(11, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+  box-shadow: var(--default-box-shadow);
+  background-color: var(--tertiary-color);
+}
+
+.hide {
+  display: none;
+}
+
+
+/* Nav Bar */
+nav#main-nav {
+  grid-column: 1/12;
+  grid-row: 1/2;
+  display: grid;
+  grid-template-columns: repeat(11, 1fr);
+
+  a {
+    font-family: $primary-font;
+    text-decoration: none;
+    color: var(--primary-color);
+    box-shadow: inset 0 var(--master-unit) 0px 0px var(--primary-color);
+    font-size: $master-font-size;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+
+    &:hover {
+      box-shadow: var(--default-box-shadow);
+      color: var(--secondary-color);
+    }
+
+    @media (min-width: $screen-sm-min) {
+      background-color: var(--tertiary-color);
+    }
+
+    &:nth-last-child(4) {
+      grid-column: 3/5;
+    }
+
+    &:nth-last-child(3) {
+      grid-column: 5/7;
+    }
+
+    &:nth-last-child(2) {
+      grid-column: 7/9;
+    }
+
+    &:nth-last-child(1) {
+      grid-column: 9/11;
+    }
+
+    @media (min-width: $screen-lg-min) {
+      &:nth-last-child(4) {
+        grid-column: 6/7;
+      }
+
+      &:nth-last-child(3) {
+        grid-column: 7/8;
+      }
+
+      &:nth-last-child(2) {
+        grid-column: 8/9;
+      }
+
+      &:nth-last-child(1) {
+        grid-column: 9/10;
+      }
+    }
+
+    &.mobile-menu {
+      display: none;
+    }
+  }
+
+  // mobile navbar (< 768px)
+  @media (max-width: $screen-sm-min) {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: black;
+    position: relative;
+
+    a {
+      display: none;
+      color: #fff;
+
+      &.mobile-menu {
+        position: absolute;
+        z-index: 2;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        min-width: 80px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        i {
+          position: absolute;
+          left: 30px;
+        }
+
+        &.open {
+          right: auto;
+        }
+
+        &.open~a {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex: 1 0 100%;
+          min-height: 50px;
+
+        }
+      }
+
+      &.active {
+        display: block;
+        flex: 1 0 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+}
+
+/* H1 */
+h1 {
+  margin: 0;
+  font-family: $primary-font;
+  text-transform: uppercase;
+  user-select: none;
+  grid-row: 4/6;
+  grid-column: 3/8;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  color: var(--primary-color);
+  background-color: var(--tertiary-color);
+
+  span#name:after {
+    content: 'web developer';
+    font-size: 26px;
+    line-height: 29px;
+    position: absolute;
+    right: 0;
+    left: 11px;
+    top: 100%;
+  }
+
+  span#name {
+    font-size: 3em;
+  }
+
+  @media(min-width: $screen-xs-min) {
+    grid-row: 4/7;
+    grid-column: 2/10;
+  }
+
+  @media(min-width: $screen-sm-min) {
+    grid-row: 4/8;
+    grid-column: 2/10;
+    justify-content: center;
+    align-items: center;
+  }
+
+  @media(min-width: $screen-md-min) {
+    span#name:after {
+      font-size: 26px;
+      line-height: 29px;
+      right: 0;
+      left: 11px;
+      top: 100%;
+    }
+  }
+
+  @media (min-width: $screen-lg-min) {
+    padding: 0px;
+    display: flex;
+    grid-row: 4/8;
+    grid-column: 3/9;
+    justify-content: center;
+    align-items: center;
+
+    span#name {
+      font-size: 4em;
+      flex-basis: auto;
+      position: relative;
+      line-height: 96px;
+
+      grid-area: 1/1/5/7;
+      margin: 0 auto;
+    }
+
+    span#name:after {
+      font-size: 26px;
+      line-height: 29px;
+      right: 0;
+      left: 8px;
+      top: 102%;
+    }
+  }
+
+  @media (min-width: $screen-lg-min) {
+    span#name {
+      font-size: 5.5em;
+    }
+  }
+}
+
+/* Footer */
+footer {
+  grid-row: 10/11;
+  grid-column: 1/12;
+  display: grid;
+  grid-template-columns: repeat(11, 1fr);
+  font-family: $primary-font;
+  font-size: $master-font-size;
+  font-weight: 600;
+
+  p {
+    margin: 0;
+    grid-column: 4/9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+    position: relative;
+    z-index: 1;
+    color: var(--primary-color);
+    background-color: var(--tertiary-color);
+    // can't use - symbol with var(--master-unit)
+    box-shadow: inset 0 -10px var(--primary-color);
+
+    @media(min-width: $screen-lg-min) {
+      grid-column: 5/8;
+    }
+
+    &:hover {
+      box-shadow: var(--default-box-shadow);
+      color: var(--secondary-color);
+    }
+
+    i.fa {
+      font-weight: 600;
+    }
+  }
+}
+
+/* Background Grid Container */
+#grid-container {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(11, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+
+  // always display site toggle
+  .grid-item.hideshow span {
+    opacity: 1;
+  }
+
+  @media (max-width: $screen-sm-min) {
+    display: none;
+  }
+
+  .grid-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+
+    span {
+      opacity: 0;
+      font-family: $primary-font;
+      color: var(--secondary-color);
+      font-size: $master-font-size;
+      font-weight: 600;
+    }
+
+    input {
+      opacity: 0;
+    }
+
+    &:hover {
+      box-shadow: var(--default-box-shadow);
+
+      span,
+      input {
+        opacity: 1;
+      }
+    }
+
+    &.grid-button:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+
+.center-element {
+  position: relative;
+  z-index: 1;
+  background-color: var(--tertiary-color);
+
+  ul {
+    list-style-type: none;
+    display: flex;
+  }
+
+  &:hover {
+    box-shadow: var(--default-box-shadow);
+  }
+}
+
+#home,
+#about,
+#work,
+#projects,
+#contact {
+  display: none;
+  grid-row: 4/8;
+  grid-column: 3/10;
+
+
+
+  @media (min-width: $screen-lg-min) {
+    grid-row: 3/9;
+    grid-column: 3/10;
+  }
+}
+
+// controls the display of contents based on data-page on body element
+body {
+  &[data-page=home] {
+    #home {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+
+
+      h1 {
+        max-width: 50%;
+        position: relative;
+        left: 40px;
+      }
+
+      &:hover h1 {
+        color: var(--secondary-color);
+      }
+
+      img {
+        max-width: 310px;
+        position: absolute;
+        bottom: 0;
+        top: 0;
+        margin: auto;
+        right: 20px;
+      }
+    }
+  }
+
+  &[data-page=about] {
+    #about {
+      display: block;
+      grid-row: 3/10;
+      grid-column: 2/11;
+      grid-template-columns: repeat(9, 1fr);
+      grid-template-rows: repeat(7, 1fr);
+    }
+
+    .center-element p {
+      font-family: $primary-font;
+      font-size: 18px;
+      font-weight: 600;
+      margin: 0;
+      padding: 15px;
+      grid-area: 1/1/8/7;
+
+      i {
+        margin-left: 10px;
+      }
+    }
+
+    #splashmountain {
+      display: block;
+      position: relative;
+      z-index: 1;
+      max-width: 100%;
+      grid-column: 8/10;
+      grid-row: 4/7;
+      grid-area: 1/7/6/10;
+      max-width: 90%;
+      margin: auto;
+      top: 5%;
+    }
+  }
+
+  &[data-page=work] {
+    #work {
+      display: block;
+      grid-row: 3/10;
+      grid-column: 2/11;
+      grid-template-columns: repeat(9, 1fr);
+      grid-template-rows: repeat(7, 1fr);
+
+      ul {
+        padding: 0;
+        height: 100%;
+        width: 100%;
+        text-align: center;
+        justify-content: space-around;
+        align-items: center;
+        flex-wrap: wrap;
+
+        li {
+          flex-basis: 50%;
+
+          p {
+            max-width: 60%;
+            margin: 0 auto;
+          }
+
+          &:hover {
+            cursor: pointer;
+
+            a span.work-item-title{
+              color: var(--secondary-color);
+            }
+          }
+        }
+      }
+
+      a {
+        font-family: "Poppins", sans-serif;
+        color: var(--primary-color);
+        font-size: 26px;
+        font-weight: 600;
+        text-decoration: none;
+        
+        p {
+          font-size: 17px;
+        }
+      }
+
+    }
+  }
+
+  &[data-page=projects] {
+    #projects {
+      display: block;
+    }
+  }
+
+  &[data-page=contact] {
+    #contact {
+      display: block;
+    }
+
+    .center-element ul {
+      list-style-type: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+      justify-content: space-around;
+      align-items: center;
+      height: 100%;
+
+      a i {
+        font-size: 90px;
+        color: var(--primary-color);
+        transition: .5s;
+
+        @media (min-width: $screen-lg-min) {
+          font-size: 110px;
+        }
+      }
+
+      a:hover i {
+        transform: scale(1.1);
+        color: var(--secondary-color);
+        transition: .5s;
+      }
+    }
+  }
+
+
+  // About
+  &[data-page=about] #about {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+
+    >p {
+      grid-area: 1/1/6/6;
+      padding: 40px;
+    }
+
+    >img {
+      grid-area: 1/6/4/8;
+      max-width: 90%;
+      margin: auto;
+      top: 10%;
+    }
+  }
+
+  @media (min-width: $screen-lg-min) {
+
+    // Home
+    &[data-page=home] {
+      grid-row: 3/9;
+      grid-column: 2/10;
+    }
+
+    // About
+    &[data-page=about] #about {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      grid-template-rows: repeat(6, 1fr);
+
+      >p {
+        grid-area: 1/1/6/6;
+        padding: 40px;
+      }
+
+      >img {
+        grid-area: 1/6/4/8;
+        max-width: 90%;
+        margin: auto;
+        top: 10%;
+      }
+    }
+  }
+
+  @media (min-width: $screen-xl-min) {}
+}
+
+
+// hide color inputs
+#grid-container {
+  .grid-item.grid-button input {
+    opacity: 0;
+    height: 100%;
+    width: 100%;
+  }
+
+  .grid-item.grid-button.primary-color {
+    background-color: var(--primary-color);
+    box-shadow: var(--default-box-shadow);
+    opacity: 0;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  .grid-item.grid-button.secondary-color {
+    background-color: var(--secondary-color);
+    box-shadow: var(--default-box-shadow);
+    opacity: 0;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  .grid-item.grid-button.tertiary-color {
+    background-color: var(--tertiary-color);
+    box-shadow: var(--default-box-shadow);
+    opacity: 0;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+
+// 'features'
+body {
+
+  // 1 - Dark Mode
+  #grid-container .grid-item.darkmode #lmode {
+    display: none;
+
+    span {
+      display: none;
+    }
+  }
+
+  #grid-container .grid-item.darkmode #dmode span {
+    display: none;
+  }
+
+  // add background when class darkened is added
+  nav#main-nav a.darkened,
+  h1.darkened,
+  #grid-container .grid-item.darkened,
+  footer p.darkened {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+  }
+
+  &.dark {
+
+    // add dark hover
+    nav#main-nav a:hover,
+    h1:hover,
+    #grid-container .grid-item:hover,
+    footer p:hover {
+      background-color: var(--primary-color);
+    }
+
+    // add background when class darkened is added
+    nav#main-nav a.darkened,
+    h1.darkened,
+    #grid-container .grid-item.darkened,
+    footer p.darkened {
+      background-color: var(--primary-color);
+      color: var(--secondary-color);
+    }
+
+    // toggle light mode/dark mode text
+    #grid-container .grid-item.darkmode #dmode {
+      opacity: 1;
+    }
+
+    #grid-container .grid-item.darkmode #lmode {
+      opacity: 1;
+    }
+  }
+
+  // 2 - show/hide content
+  #grid-container .grid-item.hideshow .fa-toggle-off {
+    display: none;
+  }
+
+  &.hidecontent {
+
+    #main-nav,
+    #home,
+    #about,
+    #work,
+    #projects,
+    #contact,
+    footer {
+      opacity: .4;
+      filter: blur(4px);
+      transition: opacity .2s ease;
+    }
+
+    #grid-container {
+      z-index: 100;
+
+      .grid-item.hideshow span {
+        opacity: 1;
+      }
+
+      .grid-item.hideshow .fa-toggle-on {
+        display: none;
+      }
+
+      .grid-item.hideshow .fa-toggle-off {
+        display: block;
+      }
+
+      .grid-item.grid-button span {
+        opacity: 1;
+      }
+
+      .grid-item.grid-button input {
+        opacity: 0;
+        height: 100%;
+        width: 100%;
+        cursor: pointer;
+      }
+
+      .grid-item.grid-button.primary-color {
+        background-color: var(--primary-color);
+        opacity: 1;
+      }
+
+      .grid-item.grid-button.secondary-color {
+        background-color: var(--secondary-color);
+        opacity: 1;
+      }
+
+      .grid-item.grid-button.tertiary-color {
+        background-color: var(--tertiary-color);
+        opacity: 1;
+      }
+    }
+  }
+
+  // 3 - shownums
+  &.shownums {
+
+    #grid-container .grid-item span,
+    #grid-container .grid-item input {
+      opacity: 1;
+    }
+  }
+
+  // 4 - showgrid
+  &.showgrid {
+    #grid-container .grid-item {
+      box-shadow: var(--default-box-shadow);
+
+      &.grid-item.showgrid span {
+        display: block;
+      }
+    }
+
+    // add hover to other elements so it's always complete
+    nav#main-nav a,
+    .center-element,
+    footer p {
+      box-shadow: var(--default-box-shadow);
+    }
+  }
+
+  // 5 - fadeinout
+  &.fadeinout {
+    #grid-container {
+      .grid-item {
+        box-shadow: inset 0px 0px 0px var(--master-unit) var(--tertiary-color);
+        transition: 2.5s ease-in-out;
+
+        span {
+          transition: 2.5s ease-in-out;
+        }
+
+        &:hover {
+          box-shadow: var(--default-box-shadow);
+          transition: .3s ease-in-out;
+
+          span {
+            opacity: 1;
+            transition: .3s ease-in-out;
+          }
+        }
+
+        &.fadeinout span {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+// end 'features'
+
+
+// animations
+@keyframes fadeinandup {
+  from {
+    opacity: 0;
+    bottom: 0;
+  }
+
+  to {
+    opacity: 1;
+    bottom: 10px;
+  }
+}
