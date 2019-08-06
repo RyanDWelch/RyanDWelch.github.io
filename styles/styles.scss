@@ -4,14 +4,13 @@ Ryan Welch Portfolio Stylesheet
 
 // Variables
 $master-font-size: 24px;
-$primary-font: 'Poppins',
-sans-serif;
+$primary-font: 'Poppins', sans-serif;
 
 :root {
   --primary-color: #000;
   --secondary-color: #219752;
   --tertiary-color: #fff;
-  --master-unit: 10px;
+  --master-unit: 12px;
 
   --default-box-shadow: inset 0px 0px 0px var(--master-unit) var(--primary-color);
   --double-box-shadow: inset 0px 0px 0px var(--master-unit) var(--primary-color),
@@ -26,7 +25,6 @@ $screen-xs-min: 480px;
 
 //@import 'flexbox-mixins';
 @import url('https://fonts.googleapis.com/css?family=Poppins');
-
 
 
 html,
@@ -278,7 +276,7 @@ footer {
     color: var(--primary-color);
     background-color: var(--tertiary-color);
     // can't use - symbol with var(--master-unit)
-    box-shadow: inset 0 -10px var(--primary-color);
+    box-shadow: inset 0 -12px var(--primary-color);
 
     @media(min-width: $screen-lg-min) {
       grid-column: 5/8;
@@ -405,6 +403,10 @@ body {
         top: 0;
         margin: auto;
         right: 20px;
+        max-height: 90%;
+        @media(max-width: 991px){
+          display: none;
+        }
       }
     }
   }
@@ -466,8 +468,10 @@ body {
           flex-basis: 50%;
 
           p {
-            max-width: 60%;
             margin: 0 auto;
+            @media(min-width: 991px) {
+              max-width: 60%;
+            }
           }
 
           &:hover {
