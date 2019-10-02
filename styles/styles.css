@@ -447,7 +447,13 @@ body[data-page=work] #work ul {
 }
 
 body[data-page=work] #work ul li {
-  flex-basis: 50%;
+  flex-basis: 100%;
+}
+
+@media (min-width: 992px) {
+  body[data-page=work] #work ul li {
+    flex-basis: 50%;
+  }
 }
 
 body[data-page=work] #work ul li p {

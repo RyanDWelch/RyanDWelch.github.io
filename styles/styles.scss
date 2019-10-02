@@ -465,7 +465,11 @@ body {
         flex-wrap: wrap;
 
         li {
-          flex-basis: 50%;
+          flex-basis: 100%;
+
+          @media(min-width: $screen-md-min) {
+            flex-basis: 50%;
+          }
 
           p {
             margin: 0 auto;
