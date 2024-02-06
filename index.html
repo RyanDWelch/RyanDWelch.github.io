@@ -13,7 +13,17 @@
 </head>
 
 <body class="light" data-page="home">
-  This is a work in progress. Please stand by.
+  <span>This is a work in progress. Please stand by.</span>
 </body>
+<style>
+  body span:hover {
+    color: white;
+    cursor: pointer;
+  }
+
+  body:has(span:hover) {
+    background-color: black;
+  }
+</style>
 
 </html>
