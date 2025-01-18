@@ -9,15 +9,59 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
   <!-- <link href="styles/styles.css" rel="stylesheet" /> -->
+  <style>
+    body {
+      font-family: "Georgia", serif;
+      background-color: #fdf6e3;
+      color: #333;
+      line-height: 1.8;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .poem-container {
+      max-width: 600px;
+      padding: 20px;
+      background: #ffffff;
+      border: 1px solid #ddd;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3), 0 6px 6px rgba(0, 0, 0, 0.2);      
+      border-radius: 10px;
+    }
+    .poem-container h1 {
+      font-family: "Cabin Sketch", cursive;
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #444;
+    }
+    .poem-container p {
+      font-family: "Space Mono", monospace;
+      margin: 0 0 .3em;
+      text-indent: 1.5em;
+    }
+  </style>
   <script src="js/script.js"></script>
 </head>
 
 <body class="light" data-page="home">
-  <span>This is a work in progress. Please stand by.</span>
+  <div class="poem-container">
+    <h1>The Endless Build</h1>
+    <p>A site unfolds in sleepless nights,</p>
+    <p>Mockups fade, then reignite.</p>
+    <p>Frameworks call, yet none suffice,</p>
+    <p>Perfection’s pull, a loaded dice.</p>
+    <br>
+    <p>Code whispers dreams both bold and shy,</p>
+    <p>A mirror for the question: why?</p>
+    <p>One day it stands, serene, complete—</p>
+    <p>A fleeting pause, then new beats repeat.</p>
+  </div>
 </body>
 <style>
   body span {
-    font-size: 3em;
+    /* font-size: 3em; */
   }
 </style>
 
